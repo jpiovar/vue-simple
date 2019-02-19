@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue-simple</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.6/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>Name: {{ name }} is from: {{ place }}</p>
+            <p><input v-model="place"/></p>
+            <p @click="changeName()">change name</p>
+        </div>
+        <script>
+            const app = new Vue({
+                el:'#app',
+                data: {
+                    name: 'janko hrasko',
+                    place: 'hraskovo'
+                },
+                methods: {
+                    changeName() {
+                        this.name = 'ferdo mravec';
+                        this.place = 'mravenisko';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
