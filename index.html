@@ -7,7 +7,14 @@
     <body>
         <div id="app">
             <p>{{ name }} is from {{ place }}</p>
-            <p><input v-model="place"/></p>
+            <p>
+                <form @submit.prevent="changePlace()">
+                    <input v-model="place"/>
+                </form>
+            </p>
+            <p>
+                <button type="button" @click="changePlace()">change place</button>
+            </p>
         </div>
         <script>
             const app = new Vue({
@@ -15,6 +22,11 @@
                 data: {
                     name: 'janko hrasko',
                     place: 'hraskovo'
+                },
+                methods: {
+                    changePlace() {
+                        this.place = 'kocurkovo'
+                    }
                 }
             });
         </script>
