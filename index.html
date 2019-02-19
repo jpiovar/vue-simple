@@ -8,12 +8,12 @@
         <div id="app">
             <p>{{ name }} is from {{ place }}</p>
             <p>
-                <form @submit.prevent="changePlace">
-                    <input v-model="place"/>
-                </form>
+                <button type="button" @click="changePlace">change place</button>
             </p>
             <p>
-                <button type="button" @click="changePlace">change place</button>
+                    superPlace {{ superPlace }}<br> 
+                    placeW {{ placeW }}<br> 
+                    superPlaceW {{ superPlaceW }}
             </p>
         </div>
         <script>
@@ -21,11 +21,26 @@
                 el:'#app',
                 data: {
                     name: 'janko hrasko',
-                    place: 'hraskovo'
+                    place: 'hraskovo',
+                    placeW: '',
+                    superPlaceW: ''
                 },
                 methods: {
                     changePlace() {
                         this.place = 'kocurkovo'
+                    }
+                },
+                computed: {
+                    superPlace() {
+                        return this.place + 'super';
+                    }
+                },
+                watch: {
+                    place(newVal, oldVal) {
+                        this.placeW = oldVal + ' ' + newVal;
+                    },
+                    superPlace(newVal, oldVal) {
+                        this.superPlaceW = oldVal + ' ' + newVal;
                     }
                 }
             });
