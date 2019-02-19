@@ -8,12 +8,12 @@
         <div id="app">
             <p>{{ name }} is from {{ place }}</p>
             <p>
-                <form @submit.prevent="changePlace()">
+                <form @submit.prevent="changePlace">
                     <input v-model="place"/>
                 </form>
             </p>
             <p>
-                <button type="button" @click="changePlace()">change place</button>
+                <button type="button" @click="changePlace">change place</button>
             </p>
         </div>
         <script>
