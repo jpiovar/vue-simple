@@ -38,9 +38,11 @@
                 watch: {
                     place(newVal, oldVal) {
                         this.placeW = oldVal + ' ' + newVal;
+                        console.log('place data changed');
                     },
                     superPlace(newVal, oldVal) {
                         this.superPlaceW = oldVal + ' ' + newVal;
+                        console.log('superPlace changed');
                     }
                 }
             });
