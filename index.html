@@ -12,7 +12,7 @@
         <div id="app">
             <p>{{ name }} is from {{ place }}</p>
             <p><input v-model="place"/></p>
-            <ul>
+            <ul> 
                 <li v-for="item in items">
                     id: {{ item.id }} / color: {{ item.color }}
                     <span  v-if="item.color==='red'"
