@@ -16,9 +16,9 @@
                 <li v-for="item in items">
                     id: {{ item.id }} / color: {{ item.color }}
                     <span  v-if="item.color==='red'"
-                           v-bind:class="{ warm: item.color==='red' }"> warm color </span>
+                           v-bind:class="{ warm: ()=>isWarm(item) }"> warm color </span>
                     <span  v-else 
-                           v-bind:class="{ cold: item.color!=='red' }"> cold color </span>
+                           v-bind:class="{ cold: ()=>isWarm(item) }"> cold color </span>
                 </li>
             </ul>
         </div>
@@ -33,6 +33,11 @@
                         { id: '666', color: 'blue' },
                         { id: '777', color: 'white' }
                     ]
+                },
+                computed: {
+                    isWarm(item) {
+                        item.color === 'red' ? true : false;
+                    }
                 }
             });
         </script>
